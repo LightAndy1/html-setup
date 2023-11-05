@@ -1,26 +1,116 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import * as fs from "fs";
+import * as path from "path";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  let disposableCommand = vscode.commands.registerCommand(
+    "extension.createHTMLPage",
+    () => {
+      const htmlContent = generateHTMLPage();
+      const cssContent = generateCSSPage();
+      const jsContent = generateJSPage();
+      const htmlFilePath = path.join(
+        vscode.workspace.rootPath || "",
+        "index.html"
+      );
+      const cssFilePath = path.join(
+        vscode.workspace.rootPath || "",
+        "styles.css"
+      );
+      const jsFilePath = path.join(
+        vscode.workspace.rootPath || "",
+        "script.js"
+      );
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "html-setup" is now active!');
+      const directoryPath = vscode.workspace.rootPath || "";
+      if (directoryPath === "") {
+        return errorMessage();
+      }
+      const filesExist = checkFilesExist(directoryPath);
+      if (filesExist) {
+        return vscode.window.showErrorMessage("Files already exist.");
+      }
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('html-setup.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from HTML Setup!');
-	});
+      fs.writeFile(htmlFilePath, htmlContent, (err) => {
+        if (err) {
+          errorMessage();
+        } else {
+          showMessage();
+        }
+      });
+      fs.writeFile(cssFilePath, cssContent, (err) => {
+        if (err) {
+          errorMessage();
+        } else {
+          showMessage();
+        }
+      });
+      fs.writeFile(jsFilePath, jsContent, (err) => {
+        if (err) {
+          errorMessage();
+        } else {
+          showMessage();
+        }
+      });
+    }
+  );
 
-	context.subscriptions.push(disposable);
+  context.subscriptions.push(disposableCommand);
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+function checkFilesExist(directoryPath: any) {
+  const fileNamesToCheck = ["index.html", "styles.css", "script.js"];
+  let fileExists = false;
+
+  fileNamesToCheck.forEach((fileName) => {
+    const filePath = `${directoryPath}/${fileName}`;
+
+    if (fs.existsSync(filePath)) {
+      fileExists = true;
+      console.log(`${fileName} exists.`);
+    } else {
+      console.log(`${fileName} does not exist.`);
+    }
+  });
+
+  return fileExists;
+}
+
+function showMessage() {
+  vscode.window.showInformationMessage("Files created successfully.");
+}
+
+function errorMessage() {
+  vscode.window.showErrorMessage(
+    "Error creating the files. Make sure you have opened a folder or workspace."
+  );
+}
+
+function generateHTMLPage() {
+  return `<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Your HTML Page</title>
+      <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+      <h1>Hello, World!</h1>
+      <script src="script.js"></script>
+    </body>
+  </html>
+  `;
+}
+
+function generateCSSPage() {
+  return `h1 {
+    color: blue;
+    font-family: Arial, sans-serif;
+  }
+  `;
+}
+
+function generateJSPage() {
+  return `console.log("Hello, World!");`;
+}
