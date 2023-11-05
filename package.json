@@ -2,6 +2,7 @@
   "name": "html-setup",
   "displayName": "HTML Setup+",
   "description": "Helps you setup a HTML page with CSS and JS included.",
+  "publisher": "LightAndy",
   "version": "1.0.0",
   "repository": {
     "type": "git",
