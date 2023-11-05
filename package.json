@@ -1,8 +1,12 @@
 {
   "name": "html-setup",
-  "displayName": "HTML Setup",
+  "displayName": "HTML Setup+",
   "description": "Helps you setup a HTML page with CSS and JS included.",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LightAndy1/html-setup"
+  },
   "engines": {
     "vscode": "^1.84.0"
   },
