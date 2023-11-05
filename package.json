@@ -2,8 +2,9 @@
   "name": "html-setup-plus",
   "displayName": "HTML Setup+",
   "description": "Helps you setup a HTML page with CSS and JS included.",
+  "version": "1.0.1",
+  "icon": "images/icon.png",
   "publisher": "html-setup-plus",
-  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/LightAndy1/html-setup"
