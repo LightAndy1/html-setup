@@ -1,71 +1,44 @@
-# html-setup README
+# HTML Setup+ 🚀
 
-This is the README for your extension "html-setup". After writing up a brief description, we recommend including the following sections.
+Create HTML pages with ease right from Visual Studio Code. This extension simplifies the process of generating HTML files with CSS and JavaScript references.
 
-## Features
+🔧 **Installation**
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+1. Open Visual Studio Code.
+2. Go to Extensions (Ctrl+Shift+X).
+3. Search for "HTML Setup+"
+4. Click "Install" to add the extension to your workspace.
 
-For example if there is an image subfolder under your extension project workspace:
+🚀 **Usage**
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open your project in Visual Studio Code.
+2. Use the Command Palette (Ctrl+Shift+P) and search for "Create HTML Page."
+3. Select the command to generate a new HTML file with CSS and JavaScript references.
+4. The HTML file is created in your workspace root directory.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+📝 **Example Output**
 
-## Requirements
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My HTML Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+🚧 **Contributing**
+Contributions and feedback are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or create a pull request.
 
-## Extension Settings
+📄 **License**
+This project is licensed under the MIT License.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+📧 **Contact**
+For questions or support, you can reach out to the project maintainers at andy.197197@yahoo.com.
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Enjoy creating HTML pages effortlessly with this extension! Happy coding! 🎉
